@@ -1,0 +1,87 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 569
+  ClientWidth = 729
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object TreeView1: TTreeView
+    Align = Left
+    Position.Y = 33.000000000000000000
+    Size.Width = 241.000000000000000000
+    Size.Height = 536.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 237.000000000000000000
+    Viewport.Height = 532.000000000000000000
+  end
+  object panelTop: TPanel
+    Align = Top
+    Size.Width = 729.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    object btnConnect: TButton
+      Align = Left
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 3.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 121.000000000000000000
+      Size.Height = 27.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = #1055#1086#1076#1082#1083#1102#1095#1080#1090#1100#1089#1103
+      OnClick = btnConnectClick
+    end
+    object btnSetSectionSelector: TButton
+      Align = Left
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 130.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 151.000000000000000000
+      Size.Height = 27.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'btnSetSectionSelector'
+      OnClick = btnSetSectionSelectorClick
+    end
+    object btnShowInfo: TButton
+      Align = Left
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 287.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 98.000000000000000000
+      Size.Height = 27.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'ShowInfo'
+      OnClick = btnShowInfoClick
+    end
+  end
+  object ComboBox1: TComboBox
+    Position.X = 328.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 145.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+  end
+  object CTMConnection: TADOConnection
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 664
+    Top = 40
+  end
+end
