@@ -8,7 +8,9 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, FMX.ListBox,
 
-  uADOConnectionSetup
+  Data.Win.ADODB,
+
+  uADOConnectionSetup, uCustomUser
   ;
 
 type
@@ -36,25 +38,34 @@ type
     procedure disableGBData;
     procedure activateGBData;
     procedure btnConnectClick(Sender: TObject);
+
   private
     { Private declarations }
   public
     ConnectionSetup: TADOConnectionSetup;
     ConnectionString: string;
+    CTMConnection: TADOConnection;
+    ConnectionStatusInfo: string;
+    CTMUser: TCTMUser;
     { Public declarations }
   end;
 
 var
   FormConnection: TFormConnection;
 
-
 implementation
-
+  uses main;
 {$R *.fmx}
 
 procedure TFormConnection.btnConnectClick(Sender: TObject);
   begin
-    ConnectionString := ConnectionSetup.GetConnectionString(cbIniSection.Selected.Text);
+    FormMain.CTMUser.setConnectionString(ConnectionSetup.GetConnectionString(cbIniSection.Selected.Text));
+    FormMain.CTMUser.Auth(editUsername.Text, editPassword.Text);
+    if not FormMain.CTMUser.isAuth then
+      begin
+        ShowMessage('Неверное имя пользователя или пароль');
+        ModalResult := mrNone;
+      end;
     ModalResult := mrOk;
   end;
 
@@ -76,6 +87,7 @@ procedure TFormConnection.btnSearchClick(Sender: TObject);
     if OpenDialogIniFilePath.Execute then
       begin
         editIniFilePath.Text := OpenDialogIniFilePath.FileName;
+        btnReadIniFile.OnClick(btnReadIniFile);
       end;
   end;
 
@@ -85,7 +97,6 @@ procedure TFormConnection.FormCreate(Sender: TObject);
     Height := 450;
     left := (Screen.WorkAreaWidth - Width) div 2;
     top := (Screen.WorkAreaHeight - Height) div 2;
-    editIniFilePath.Text := '.\connection.ini';
     disableGBData;
   end;
 
