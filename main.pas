@@ -61,7 +61,7 @@ procedure TFormMain.btnConnectionFormClick(Sender: TObject);
     frm.btnReadIniFile.OnClick(frm.btnReadIniFile);
     frm.editUsername.Text := 'CTM';
     frm.editPassword.Text := 'CTM';
-    frm.panelLeft.Visible := False;
+//    frm.panelLeft.Visible := False;
     frm.ShowModal;
 
     if frm.ModalResult = mrOk then
