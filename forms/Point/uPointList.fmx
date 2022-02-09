@@ -1,0 +1,169 @@
+object FormPointList: TFormPointList
+  Left = 0
+  Top = 0
+  Caption = #1057#1087#1080#1089#1086#1082' '#1087#1091#1085#1082#1090#1086#1074
+  ClientHeight = 394
+  ClientWidth = 435
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object panelTop: TPanel
+    Align = Top
+    Size.Width = 435.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnSearch: TButton
+      Align = Right
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 248.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 29.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = #1053#1072#1081#1090#1080
+      OnClick = btnSearchClick
+    end
+    object editQ: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Left
+      TabOrder = 1
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Hint = #1055#1086#1080#1089#1082'...'
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 215.000000000000000000
+      Size.Height = 29.000000000000000000
+      Size.PlatformDefault = False
+      TextPrompt = #1055#1086#1080#1089#1082'...'
+    end
+  end
+  object StringGridPointList: TStringGrid
+    Align = Client
+    CanFocus = True
+    ClipChildren = True
+    Size.Width = 435.000000000000000000
+    Size.Height = 289.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    TextSettings.Trimming = Word
+    TabOrder = 2
+    RowCount = 0
+    Options = [Editing, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, AlwaysShowSelection, Tabs, Header, HeaderClick, AutoDisplacement]
+    Viewport.Width = 431.000000000000000000
+    Viewport.Height = 264.000000000000000000
+  end
+  object panelBot: TPanel
+    Align = Bottom
+    Position.Y = 338.000000000000000000
+    Size.Width = 435.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object btnPostForm: TButton
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 317.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 84.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = #1044#1086#1073#1072#1074#1080#1090#1100
+      OnClick = btnPostFormClick
+    end
+    object btnPutForm: TButton
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 213.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 84.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = #1048#1079#1084#1077#1085#1080#1090#1100
+      OnClick = btnPutFormClick
+    end
+    object btnGet: TButton
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 109.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 84.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = #1055#1086#1089#1084#1086#1090#1088#1077#1090#1100
+      OnClick = btnGetClick
+    end
+    object btnSelect: TButton
+      Align = Left
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 79.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = #1042#1099#1073#1088#1072#1090#1100
+      OnClick = btnGetClick
+    end
+  end
+  object QueryPointList: TADOQuery
+    CursorType = ctStatic
+    LockType = ltReadOnly
+    Parameters = <
+      item
+        Name = 'q'
+        Attributes = [paNullable]
+        DataType = ftString
+        NumericScale = 255
+        Precision = 255
+        Size = 20
+        Value = Null
+      end>
+    SQL.Strings = (
+      'EXEC POINT#LIST :q')
+    Left = 152
+    Top = 184
+  end
+  object BindSourceDBPointList: TBindSourceDB
+    DataSet = QueryPointList
+    ScopeMappings = <>
+    Left = 264
+    Top = 136
+  end
+  object BindingsListPointList: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 260
+    Top = 181
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDBPointList
+      GridControl = StringGridPointList
+      Columns = <>
+    end
+  end
+end

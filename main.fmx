@@ -9,32 +9,26 @@ object FormMain: TFormMain
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object TreeView1: TTreeView
-    Align = Left
-    Position.Y = 33.000000000000000000
-    Size.Width = 241.000000000000000000
-    Size.Height = 495.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 0
-    Viewport.Width = 237.000000000000000000
-    Viewport.Height = 491.000000000000000000
-  end
   object panelTop: TPanel
     Align = Top
+    Padding.Left = 3.000000000000000000
+    Padding.Top = 3.000000000000000000
+    Padding.Right = 3.000000000000000000
+    Padding.Bottom = 3.000000000000000000
     Size.Width = 729.000000000000000000
-    Size.Height = 33.000000000000000000
+    Size.Height = 41.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 6
+    TabOrder = 5
     object btnConnectionForm: TButton
       Align = Left
       Margins.Left = 3.000000000000000000
       Margins.Top = 3.000000000000000000
       Margins.Right = 3.000000000000000000
       Margins.Bottom = 3.000000000000000000
-      Position.X = 3.000000000000000000
-      Position.Y = 3.000000000000000000
+      Position.X = 6.000000000000000000
+      Position.Y = 6.000000000000000000
       Size.Width = 138.000000000000000000
-      Size.Height = 27.000000000000000000
+      Size.Height = 29.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       Text = #1055#1086#1076#1082#1083#1102#1095#1080#1090#1100#1089#1103
@@ -46,10 +40,10 @@ object FormMain: TFormMain
       Margins.Top = 3.000000000000000000
       Margins.Right = 3.000000000000000000
       Margins.Bottom = 3.000000000000000000
-      Position.X = 147.000000000000000000
-      Position.Y = 3.000000000000000000
+      Position.X = 150.000000000000000000
+      Position.Y = 6.000000000000000000
       Size.Width = 138.000000000000000000
-      Size.Height = 27.000000000000000000
+      Size.Height = 29.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       Text = #1054#1090#1082#1083#1102#1095#1080#1090#1100#1089#1103
@@ -62,7 +56,7 @@ object FormMain: TFormMain
     Size.Width = 729.000000000000000000
     Size.Height = 41.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 7
+    TabOrder = 6
     object labelStatusDBTime: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Client
@@ -92,11 +86,57 @@ object FormMain: TFormMain
       Size.PlatformDefault = False
     end
   end
+  object panelFuncs: TPanel
+    Align = Left
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 10.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 10.000000000000000000
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 46.000000000000000000
+    Size.Width = 209.000000000000000000
+    Size.Height = 477.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    object btnPoints: TButton
+      Align = Top
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 189.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = #1055#1091#1085#1082#1090#1099
+      OnClick = btnPointsClick
+    end
+    object btnFlts: TButton
+      Align = Top
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 41.000000000000000000
+      Size.Width = 189.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = #1056#1077#1081#1089#1099
+    end
+  end
   object CTMConnection: TADOConnection
     ConnectionTimeout = 5
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
-    Left = 648
-    Top = 504
+    Left = 664
+    Top = 480
   end
 end

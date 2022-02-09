@@ -64,13 +64,18 @@ procedure TFormConnection.btnConnectClick(Sender: TObject);
     if not FormMain.CTMUser.isAuth then
       begin
         ShowMessage('Неверное имя пользователя или пароль');
-        ModalResult := mrNone;
+        ModalResult := mrCancel;
+      end
+    else
+      begin
+      ModalResult := mrOk;
       end;
-    ModalResult := mrOk;
   end;
 
 procedure TFormConnection.btnReadIniFileClick(Sender: TObject);
   begin
+    disableGBData;
+    cbIniSection.Items.Clear;
     ConnectionSetup := TADOConnectionSetup.Create('MSSQL', editIniFilePath.Text);
     ConnectionSetup.SetSectionSelector(cbIniSection.Items);
     if cbIniSection.Count > 0 then

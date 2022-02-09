@@ -15,7 +15,7 @@ uses
   FMX.Bind.Grid, FMX.Grid.Style,
 
   uFamalyTree, uTreeViewBuilder, uADOConnectionSetup, uConnectionForm,
-  uCustomUser,
+  uCustomUser, uPointList,
 
   Data.FMTBcd, Data.DB, Data.SqlExpr, FMX.Layouts, FMX.TreeView,
 
@@ -25,7 +25,6 @@ uses
 
 type
   TFormMain = class(TForm)
-    TreeView1: TTreeView;
     CTMConnection: TADOConnection;
     panelTop: TPanel;
     btnConnectionForm: TButton;
@@ -33,9 +32,15 @@ type
     labelStatusDBTime: TEdit;
     panelBot: TPanel;
     labelStatusUsername: TEdit;
+    panelFuncs: TPanel;
+    btnPoints: TButton;
+    btnFlts: TButton;
     procedure btnConnectionFormClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnDisconnectClick(Sender: TObject);
+    procedure btnPointsClick(Sender: TObject);
+    procedure disconnectedUI;
+    procedure connectedUI;
   private
     { Private declarations }
   public
@@ -54,27 +59,18 @@ implementation
 procedure TFormMain.btnConnectionFormClick(Sender: TObject);
   var
     frm: TFormConnection;
-    q: TADOQuery;
   begin
     frm := TFormConnection.Create(NIL);
-    // предустановка на ПК
     frm.editUsername.Text := 'CTM';
     frm.editPassword.Text := 'CTM';
     frm.editIniFilePath.Text := 'F:\delphi_projects\CTMFMX\connection.ini';
-    frm.btnReadIniFile.OnClick(frm.btnReadIniFile);
+    frm.btnReadIniFileClick(frm.btnReadIniFile);
+//    frm.btnConnectClick(frm.btnConnect);
     frm.ShowModal;
 
     if frm.ModalResult = mrOk then
       begin
-        btnConnectionForm.Enabled := False;
-        btnDisconnect.Enabled := True;
-          // проверка подключения
-//        q := TADOQuery.Create(NIL);
-//        q.Connection := ctmuser.getConnection;
-//        q.SQL.Add('SELECT GETDATE() as d');
-//        q.Open;
-//        ShowMessage(DATETOSTR(Q.FieldValues['d']));
-
+        connectedUI;
         labelStatusDBTime.Text :=
           'Connected at: '
           + DateToStr(Now()) + ' '
@@ -83,18 +79,17 @@ procedure TFormMain.btnConnectionFormClick(Sender: TObject);
           'Name: ' + CTMUser.Username + '. '
           + 'ID: ' + IntToStr(CTMUser.ID);
       end;
-
+    if frm.ModalResult = mrCancel then
+      begin
+        disconnectedUI;
+      end;
     frm.Free;
   end;
 
 procedure TFormMain.btnDisconnectClick(Sender: TObject);
-  var
-    q: TADOQuery;
   begin
-    btnConnectionForm.Enabled := True;
-    btnDisconnect.Enabled := False;
     CTMUSer.isAuth := False;
-
+    disconnectedUI;
     labelStatusDBTime.Text :=
       'Disconnected at: '
       + DateToStr(Now()) + ' '
@@ -105,17 +100,37 @@ procedure TFormMain.btnDisconnectClick(Sender: TObject);
       + TimeToStr(Now());
   end;
 
+procedure TFormMain.btnPointsClick(Sender: TObject);
+  var
+    frm: TFormPointList;
+  begin
+    frm := TFormPointList.Create(self);
+    frm.btnSelect.Enabled := False;
+    frm.ShowModal;
+  end;
+
 procedure TFormMain.FormCreate(Sender: TObject);
   begin
     CTMUser := TCTMUser.Create;
     btnConnectionForm.OnClick(btnConnectionForm);
-
     Width := 1200;
     Height := 800;
     left := (Screen.WorkAreaWidth - Width) div 2;
     top := (Screen.WorkAreaHeight - Height) div 2;
+  end;
 
+procedure TFormMain.connectedUI;
+  begin
+    panelFuncs.Enabled := True;
+    btnDisconnect.Enabled := True;
+    btnConnectionForm.Enabled := False;
+  end;
 
+procedure TFormMain.disconnectedUI;
+  begin
+    panelFuncs.Enabled := False;
+    btnDisconnect.Enabled := False;
+    btnConnectionForm.Enabled := True;
   end;
 
 end.

@@ -9,13 +9,18 @@ uses
   uTreeViewBuilder in '..\UNITS\uTreeViewBuilder.pas',
   uADOConnectionSetup in '..\UNITS\uADOConnectionSetup.pas',
   uConnectionForm in 'forms\uConnectionForm.pas' {FormConnection},
-  uCustomUser in '..\UNITS\uCustomUser.pas';
+  uCustomUser in '..\UNITS\uCustomUser.pas',
+  uPointList in 'forms\Point\uPointList.pas' {FormPointList},
+  uFormCenter in '..\UNITS\uFormCenter.pas',
+  uPointCrud in 'forms\Point\uPointCrud.pas' {FormPointCrud};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TFormPointList, FormPointList);
+  Application.CreateForm(TFormPointCrud, FormPointCrud);
   Application.Run;
 
 end.

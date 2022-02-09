@@ -53,12 +53,12 @@ object FormConnection: TFormConnection
           Size.PlatformDefault = False
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           Text = #1055#1091#1090#1100
-          TabOrder = 38
+          TabOrder = 37
         end
         object editIniFilePath: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Top
-          TabOrder = 39
+          TabOrder = 38
           Position.X = 10.000000000000000000
           Position.Y = 33.000000000000000000
           Margins.Left = 10.000000000000000000
@@ -79,8 +79,9 @@ object FormConnection: TFormConnection
           Size.Width = 127.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 41
+          TabOrder = 40
           Text = #1055#1088#1086#1095#1080#1090#1072#1090#1100
+          Visible = False
           OnClick = btnReadIniFileClick
         end
         object btnSearch: TButton
@@ -94,7 +95,7 @@ object FormConnection: TFormConnection
           Size.Width = 127.000000000000000000
           Size.Height = 22.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 40
+          TabOrder = 39
           Text = #1053#1072#1081#1090#1080
           OnClick = btnSearchClick
         end
@@ -135,7 +136,7 @@ object FormConnection: TFormConnection
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         Text = #1057#1077#1082#1094#1080#1103' '#1087#1086#1076#1082#1083#1102#1095#1077#1085#1080#1103' (DB)'
-        TabOrder = 42
+        TabOrder = 41
       end
       object cbIniSection: TComboBox
         Align = Top
@@ -146,7 +147,7 @@ object FormConnection: TFormConnection
         Size.Width = 212.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 43
+        TabOrder = 42
       end
       object labelUsername: TLabel
         Align = Top
@@ -161,12 +162,12 @@ object FormConnection: TFormConnection
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         Text = #1048#1084#1103' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
-        TabOrder = 39
+        TabOrder = 38
       end
       object editUsername: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Top
-        TabOrder = 41
+        TabOrder = 40
         Position.X = 20.000000000000000000
         Position.Y = 86.000000000000000000
         Hint = #1048#1084#1103' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103' ('#1074#1072#1096' '#1083#1086#1075#1080#1085')'
@@ -182,7 +183,7 @@ object FormConnection: TFormConnection
       object editPassword: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Top
-        TabOrder = 40
+        TabOrder = 39
         Position.X = 20.000000000000000000
         Position.Y = 140.000000000000000000
         Margins.Left = 10.000000000000000000
@@ -205,7 +206,7 @@ object FormConnection: TFormConnection
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         Text = #1055#1072#1088#1086#1083#1100
-        TabOrder = 38
+        TabOrder = 37
       end
       object btnConnect: TButton
         Align = Bottom

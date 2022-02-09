@@ -1,0 +1,24 @@
+inherited FormPointList_XLgXhdpiTb: TFormPointList_XLgXhdpiTb
+  ClientHeight = 1255
+  ClientWidth = 800
+  DesignerMasterStyle = 0
+  inherited panelTop: TPanel
+    Size.Width = 800.000000000000000000
+    inherited btnSearch: TButton
+      Position.X = 613.000000000000000000
+    end
+    inherited editQ: TEdit
+      Size.Height = 32.000000000000000000
+    end
+  end
+  inherited StringGridPointList: TStringGrid
+    Size.Width = 800.000000000000000000
+    Size.Height = 1150.000000000000000000
+    Viewport.Width = 800.000000000000000000
+    Viewport.Height = 1150.000000000000000000
+  end
+  inherited panelBot: TPanel
+    Position.Y = 1199.000000000000000000
+    Size.Width = 800.000000000000000000
+  end
+end

@@ -1,0 +1,24 @@
+inherited FormPointList_GGlass: TFormPointList_GGlass
+  ClientHeight = 215
+  ClientWidth = 427
+  DesignerMasterStyle = 0
+  inherited panelTop: TPanel
+    Size.Width = 427.000000000000000000
+    inherited btnSearch: TButton
+      Position.X = 240.000000000000000000
+    end
+    inherited editQ: TEdit
+      Size.Height = 32.000000000000000000
+    end
+  end
+  inherited StringGridPointList: TStringGrid
+    Size.Width = 427.000000000000000000
+    Size.Height = 110.000000000000000000
+    Viewport.Width = 427.000000000000000000
+    Viewport.Height = 110.000000000000000000
+  end
+  inherited panelBot: TPanel
+    Position.Y = 159.000000000000000000
+    Size.Width = 427.000000000000000000
+  end
+end
