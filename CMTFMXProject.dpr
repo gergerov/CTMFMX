@@ -12,15 +12,16 @@ uses
   uCustomUser in '..\UNITS\uCustomUser.pas',
   uPointList in 'forms\Point\uPointList.pas' {FormPointList},
   uFormCenter in '..\UNITS\uFormCenter.pas',
-  uPointCrud in 'forms\Point\uPointCrud.pas' {FormPointCrud};
+  uPointCrud in 'forms\Point\uPointCrud.pas' {FormPointCrud},
+  Data in 'models\Data.pas',
+  CTMUser in 'models\CTMUser.pas',
+  CTMConnection in 'models\CTMConnection.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);
-  Application.CreateForm(TFormPointList, FormPointList);
-  Application.CreateForm(TFormPointCrud, FormPointCrud);
   Application.Run;
 
 end.

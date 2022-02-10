@@ -63,8 +63,8 @@ procedure TFormMain.btnConnectionFormClick(Sender: TObject);
     frm := TFormConnection.Create(NIL);
     frm.editUsername.Text := 'CTM';
     frm.editPassword.Text := 'CTM';
-    frm.editIniFilePath.Text := 'F:\delphi_projects\CTMFMX\connection.ini';
-    frm.btnReadIniFileClick(frm.btnReadIniFile);
+//    frm.editIniFilePath.Text := 'F:\delphi_projects\CTMFMX\connection.ini';
+//    frm.btnReadIniFileClick(frm.btnReadIniFile);
 //    frm.btnConnectClick(frm.btnConnect);
     frm.ShowModal;
 
