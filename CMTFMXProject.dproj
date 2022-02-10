@@ -181,7 +181,7 @@
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <DCC_UnitSearchPath>F:\delphi_projects\UNITS;F:\delphi_projects\CTMFMX\forms;F:\delphi_projects\CTMFMX\forms\Point;X:\delphi\delphi-units;X:\delphi\CTMFMX\forms;X:\delphi\CTMFMX\forms\Point;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>F:\delphi_projects\UNITS;F:\delphi_projects\CTMFMX\forms;F:\delphi_projects\CTMFMX\forms\Point;F:\delphi_projects\CTMFMX\modules;F:\delphi_projects\CTMFMX\backend;X:\delphi\delphi-units;X:\delphi\CTMFMX\forms;X:\delphi\CTMFMX\forms\Point;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
@@ -225,9 +225,15 @@
             <Form>FormPointCrud</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="models\Data.pas"/>
-        <DCCReference Include="models\CTMUser.pas"/>
-        <DCCReference Include="models\CTMConnection.pas"/>
+        <DCCReference Include="modules\CTM.Modules.Startapp.pas"/>
+        <DCCReference Include="models\CTM.Models.Connection.pas"/>
+        <DCCReference Include="models\CTM.Models.User.pas"/>
+        <DCCReference Include="backend\CTM.Backend.Bond.pas"/>
+        <DCCReference Include="dataModule.pas">
+            <Form>DataModule1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -319,14 +325,14 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Android\Debug\libCMTFMXProject.so" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Android\Debug\splash_image_def.xml" Configuration="Debug" Class="AndroidSplashImageDef">
                     <Platform Name="Android">
-                        <RemoteName>libCMTFMXProject.so</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Android\Debug\splash_image_def.xml" Configuration="Debug" Class="AndroidSplashImageDef">
+                <DeployFile LocalName="Android\Debug\libCMTFMXProject.so" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Android">
+                        <RemoteName>libCMTFMXProject.so</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

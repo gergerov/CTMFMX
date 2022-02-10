@@ -10,7 +10,12 @@ uses
 
   Data.Win.ADODB,
 
-  uADOConnectionSetup, uCustomUser
+  uADOConnectionSetup,
+
+  CTM.Modules.Startapp,
+  CTM.Backend.Bond,
+  CTM.Models.Connection, CTM.Models.User
+
   ;
 
 type
@@ -44,9 +49,9 @@ type
   public
     ConnectionSetup: TADOConnectionSetup;
     ConnectionString: string;
-    CTMConnection: TADOConnection;
+//    CTMConnection: TADOConnection;
     ConnectionStatusInfo: string;
-    CTMUser: TCTMUser;
+//    CTMUser: TCTMUser;
     { Public declarations }
   end;
 
@@ -59,9 +64,14 @@ implementation
 
 procedure TFormConnection.btnConnectClick(Sender: TObject);
   begin
-    FormMain.CTMUser.setConnectionString(ConnectionSetup.GetConnectionString(cbIniSection.Selected.Text));
-    FormMain.CTMUser.Auth(editUsername.Text, editPassword.Text);
-    if not FormMain.CTMUser.isAuth then
+//    FormMain.CTMUser.setConnectionString(ConnectionSetup.GetConnectionString(cbIniSection.Selected.Text));
+//    FormMain.CTMUser.Auht(editUsername.Text, editPassword.Text);
+//    CTMUser := TCTMuser.Create(NIL);
+    CTMConnection.ConnectionString := ConnectionSetup.GetConnectionString(cbIniSection.Selected.Text);
+    CTMUser.Username := editUsername.Text;
+    CTMUser.Password := editUsername.Text;
+    CTMConnect;
+    if not CTMUser.Auth then
       begin
         ShowMessage('Неверное имя пользователя или пароль');
         ModalResult := mrCancel;

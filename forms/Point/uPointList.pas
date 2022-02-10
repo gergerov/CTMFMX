@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.StdCtrls, System.Rtti, FMX.Grid.Style,
   FMX.ScrollBox, FMX.Grid,
 
-  uFormCenter, uPointCrud,
+  uFormCenter, uPointCrud, CTM.Modules.Startapp,
 
   FMX.Edit, Data.DB, Data.Win.ADODB, Data.Bind.EngExt,
   Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs, Fmx.Bind.Editors,
@@ -66,7 +66,7 @@ procedure TFormPointList.btnGetClick(Sender: TObject);
     frm.SetID(StrToInt(QueryPointList.FieldValues['ID']));
     frm.SetMode('GET');
     frm.ShowModal;
-    btnSearchClick(btnSearch);
+//    btnSearchClick(btnSearch);
   end;
 
 procedure TFormPointList.btnPostFormClick(Sender: TObject);
@@ -112,7 +112,7 @@ procedure TFormPointList.editQTyping(Sender: TObject);
 procedure TFormPointList.FormCreate(Sender: TObject);
   begin
     setFormOnCenter(self);
-    QueryPointList.Connection := FormMain.CTMUser.getConnection;
+    QueryPointList.Connection := CTMConnection;
     btnSearchClick(btnSearch);
   end;
 

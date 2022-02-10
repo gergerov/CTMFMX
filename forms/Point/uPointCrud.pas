@@ -6,7 +6,9 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.StdCtrls,
-  uFormCenter, FMX.Edit, Data.DB, Data.Win.ADODB
+  uFormCenter, FMX.Edit, Data.DB, Data.Win.ADODB,
+
+  CTM.Modules.Startapp
   ;
 
 type
@@ -62,7 +64,7 @@ implementation uses main;
 procedure TFormPointCrud.FormCreate(Sender: TObject);
   begin
     setFormOnCenter(self);
-    PointCrudQuery.Connection := FormMain.CTMUser.getConnection;
+    PointCrudQuery.Connection := CTMConnection;
   end;
 
 procedure TFormPointCrud.SetMode(Value: string);

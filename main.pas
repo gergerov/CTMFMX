@@ -16,6 +16,7 @@ uses
 
   uFamalyTree, uTreeViewBuilder, uADOConnectionSetup, uConnectionForm,
   uCustomUser, uPointList,
+  CTM.Backend.Bond, CTM.Modules.Startapp,
 
   Data.FMTBcd, Data.DB, Data.SqlExpr, FMX.Layouts, FMX.TreeView,
 
@@ -25,7 +26,7 @@ uses
 
 type
   TFormMain = class(TForm)
-    CTMConnection: TADOConnection;
+    CTMConnectionOld: TADOConnection;
     panelTop: TPanel;
     btnConnectionForm: TButton;
     btnDisconnect: TButton;
@@ -35,6 +36,8 @@ type
     panelFuncs: TPanel;
     btnPoints: TButton;
     btnFlts: TButton;
+    btnTest: TButton;
+    ADOConnection1: TADOConnection;
     procedure btnConnectionFormClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnDisconnectClick(Sender: TObject);
@@ -44,7 +47,7 @@ type
   private
     { Private declarations }
   public
-    CTMUser: TCTMUser;
+//    CTMUser: TCTMUser;
     { Public declarations }
   end;
 
@@ -88,7 +91,7 @@ procedure TFormMain.btnConnectionFormClick(Sender: TObject);
 
 procedure TFormMain.btnDisconnectClick(Sender: TObject);
   begin
-    CTMUSer.isAuth := False;
+    CTMUSer.Auth := False;
     disconnectedUI;
     labelStatusDBTime.Text :=
       'Disconnected at: '
@@ -111,7 +114,7 @@ procedure TFormMain.btnPointsClick(Sender: TObject);
 
 procedure TFormMain.FormCreate(Sender: TObject);
   begin
-    CTMUser := TCTMUser.Create;
+    CTMStartapp;
     btnConnectionForm.OnClick(btnConnectionForm);
     Width := 1200;
     Height := 800;

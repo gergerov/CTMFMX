@@ -30,7 +30,7 @@ object FormMain: TFormMain
       Size.Width = 138.000000000000000000
       Size.Height = 29.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 2
       Text = #1055#1086#1076#1082#1083#1102#1095#1080#1090#1100#1089#1103
       OnClick = btnConnectionFormClick
     end
@@ -45,9 +45,23 @@ object FormMain: TFormMain
       Size.Width = 138.000000000000000000
       Size.Height = 29.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
+      TabOrder = 1
       Text = #1054#1090#1082#1083#1102#1095#1080#1090#1100#1089#1103
       OnClick = btnDisconnectClick
+    end
+    object btnTest: TButton
+      Align = Left
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Position.X = 294.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 138.000000000000000000
+      Size.Height = 29.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = #1058#1077#1089#1090' CTMConnection'
     end
   end
   object panelBot: TPanel
@@ -132,11 +146,19 @@ object FormMain: TFormMain
       Text = #1056#1077#1081#1089#1099
     end
   end
-  object CTMConnection: TADOConnection
+  object CTMConnectionOld: TADOConnection
     ConnectionTimeout = 5
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 664
     Top = 480
+  end
+  object ADOConnection1: TADOConnection
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Data Source=DESKTOP-5G1RJA4\SQLEXPRESS'
+    Provider = 'SQLOLEDB.1'
+    Left = 352
+    Top = 272
   end
 end
